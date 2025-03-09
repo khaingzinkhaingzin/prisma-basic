@@ -4,20 +4,34 @@ const prisma = new PrismaClient({ log: ["query"] });
 
 async function main() {
   // ... you will write your Prisma Client queries here
-  const user = await prisma.user.update({
+  const kyle = await prisma.user.findFirst({
     where: {
       email: "kyle@test.com",
     },
-    data: {
-      userPreference: {
-        update: {
-          emailUpdates: true,
-        },
-      },
-    },
   });
+  if (kyle) {
+    const post = await prisma.post.findFirst({
+      where: {
+        authorId: kyle.id,
+      },
+    });
 
-  console.log(user);
+    // post delete
+    if (post) {
+      await prisma.post.delete({
+        where: {
+          id: post.id,
+        },
+      });
+    }
+
+    // user delete
+    await prisma.user.delete({
+      where: {
+        id: kyle.id,
+      },
+    });
+  }
 }
 
 main()
