@@ -1,4 +1,23 @@
 {
+  "name": "prisma-basic",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon src/script.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khaingzinkhaingzin/prisma-basic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khaingzinkhaingzin/prisma-basic/issues"
+  },
+  "homepage": "https://github.com/khaingzinkhaingzin/prisma-basic#readme",
+  "description": "",
   "devDependencies": {
     "@types/node": "^22.13.10",
     "nodemon": "^3.1.9",
