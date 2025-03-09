@@ -4,17 +4,17 @@ const prisma = new PrismaClient({ log: ["query"] });
 
 async function main() {
   // ... you will write your Prisma Client queries here
-  const user = await prisma.user.findUnique({
+  const users = await prisma.post.findMany({
     where: {
-      // age_name: {
-      //   age: 27,
-      //   name: "Kyle",
-      // },
-      email: "kyle@test.com",
+      author: {
+        is: {
+          age: 27,
+        },
+      },
     },
   });
 
-  console.log(user);
+  console.log(users);
 }
 
 main()
