@@ -9,8 +9,10 @@ async function main() {
       email: "kyle@test.com",
     },
     data: {
-      age: {
-        divide: 10,
+      userPreference: {
+        update: {
+          emailUpdates: true,
+        },
       },
     },
   });
